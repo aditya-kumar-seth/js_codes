@@ -1,0 +1,5 @@
+kisi user ka data store krna aur us data ko acche se datatype ke hisab se rakhna
+syn:
+    const varName = varValue //value cant be changed further
+    let varName = varValue
+    var varName = varValue
