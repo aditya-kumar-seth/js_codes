@@ -6,3 +6,9 @@ console.log(balance.toFixed(1))//upto x decimal places
 console.log(balance.toPrecision(3))//upto x decimal places
 const hund = 10000000000
 console.log(hund.toLocaleString('en-IN'))
+
+
+// +++++++++++++++++ Math +++++++++++++++++
+let x = Math.random()
+console.log(x)
+con 
