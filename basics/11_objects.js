@@ -118,7 +118,7 @@ const userArray = [
 //find user with id 2
 const user2 = userArray.find((x) => x.id === 2)
 console.log(user2)//{id:2, name:'Aman'} 
-
+ 
 
 //api are fetched in form of objects only
 //local storage only stores strings so we need to convert object to string
