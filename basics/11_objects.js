@@ -65,6 +65,11 @@ console.log(newObj2)
 //destructuring of objects
 const {key1,key2:k2} = obj1//after this k2 will be used to access key2and key1 will be used to access key1
 console.log(key1,k2)
+//when we pass a object in form {} in function it is called destructuring
+
+
+
+
 
 console.log(Object.entries(obj1))//gives array of arrays of key value pairs
 console.log(Object.keys(obj1))//gives array of keys
@@ -115,7 +120,13 @@ const user2 = userArray.find((x) => x.id === 2)
 console.log(user2)//{id:2, name:'Aman'} 
 
 
-
+//api are fetched in form of objects only
+//local storage only stores strings so we need to convert object to string
+//  using JSON.stringify() and to convert string to object we use JSON.parse()
+const userString = JSON.stringify(user)
+console.log(userString)
+const userObj = JSON.parse(userString)
+console.log(userObj)
 
 
 
