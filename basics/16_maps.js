@@ -16,6 +16,8 @@ console.log(map.size);//3
 map.delete('b');
 console.log(map.has('b'));//false
 //iterate over map
+//FOR OF CANT BE USED DIRECTLY TO 
+// OBJECTS AS IT GIVES ARRAY OF ARRAYS
 for(let [k,val] of map){ //destructuring
     console.log(`${k} : ${val}`);
 }

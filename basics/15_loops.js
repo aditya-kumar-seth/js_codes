@@ -53,3 +53,16 @@ outer: for(let i=0;i<3;i++){
         console.log(`i=${i},j=${j}`);
     }
 }
+
+
+const names = ['Alice', 'Bob', 'Charlie'];
+
+// Using forEach to iterate over the array
+names.forEach((name, idx,array) => {
+  console.log(`${idx + 1}: ${name}:${array}`);
+}); 
+
+//callback function as argument
+names.forEach(function(name, i,j) {
+  console.log(`${i + 1}: ${name}:${j}`);
+}); 
