@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>only js</title>
+</head>
+<body style="background-color: black;
+color: yellow;
+">
+</body>
+<script>
+    //make the page using js only
+    let body = document.body;
+    let div = document.createElement('div');//div created 
+    div.classList.add('container');//class added to the div
+    body.appendChild(div);//div added to the body
+    let h1 = document.createElement('h1');//h1 created
+    h1.classList.add('title');//class added to the h1
+    h1.innerText = 'DOM';//this overrides the text inside the h1
+    //this is not preffered as it taskes two rounds to render the text
+    //orund1: create the element
+    //round2: add the text to the element
+    //so we use innerText while creating the element
+    //let h1 = document.createElement('h1').innerText = 'DOM';this is preffered
+    div.appendChild(h1);//h1 added to the div
+    
+
+</script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>creating elements</title>
+</head>
+<body
+bgcolor="black"
+text="yellow">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesdday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+
+    </div>
+    <script>
+        let parent = document.querySelector('.parent');//selecting the parent class
+        console.lod(parent);//this will return the whole parent class
+        console.lod(parent.children);//this will return the children of the parent class
+        //this will return an HTMLCollection
+        //htmlCollection is an array-like object
+        for(let i=0;i<parent.children.length;i++){
+            console.log(parent.children[i]);
+        }
+        parent.child[2].style.color = 'red';
+        console.log(parent.firstElementChild);//this will return the first child of the parent class
+        console.log(parent.lastElementChild);//this will return the last child of the parent class
+        let dayOne = document.querySelector('.day');//selecting the first element with class day
+        //queryselector operation traverses the entire DOM and returns the first element that matches the selector
+        console.log(dayOne.parentElement);
+        console.log(dayOne.nextElementSibling);//this will return the next sibling of the dayOne element
+        console.log("Nodes: ",parent.childNodes);//this will return all the nodes of the parent class including text nodes,comment nodes etc. in anodelist
+        //nodeList is also an array-like object
+
+
+
+
+
+
+        let newElement = document.createElement('div');//creating a new div element
+        newElement.classList.add('day');//adding a class to the new element
+        newElement.innerText = 'Saturday';//adding text to the new element
+        parent.appendChild(newElement);
+        console.log(parent);//this will return the whole parent class with the new element added
+        //agar humein beech mein element add karna hai toh hum insertBefore method use karenge
+        //ex:-
+        parent.insertBefore(newElement, parent.children[2]);//this will add the new element before the 3rd child of the parent
+        
+    </script>
+</body>
+</html>

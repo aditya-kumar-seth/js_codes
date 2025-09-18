@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom</title>
+</head>
+<body style="background-color: black;color: yellow;
+font-family: 'Times New Roman', Times, serif;">
+
+</body>
+<script>
+    //----------------create a list element-------------------------
+    let ul = document.createElement('ul');//creating a ul element
+    ul.classList.add('language');//adding a class to the ul element
+    document.body.appendChild(ul);//adding the ul element to the body
+
+    //--------------------function languages to the list--------------------- 
+    function addLanguage(langName,list){
+      let li = document.createElement('li');//creating a li element
+      li.innerHTML = `${langName}`;//requies traversal and not optimum to use innerHTML 
+      list.appendChild(li);//adding the li element to the ul element
+    }
+    addLanguage('JavaScript',ul);
+    addLanguage('Python',ul);
+
+    //this function is not optimised as we need to traverse the innerHTML in l
+    //t deal this we crate a textNode and append it to the li element
+    //-------------------- function optimised---------------------
+    function addLangOpt(langName,list){
+        let li = document.createElement('li');
+        li.appendChild(document.createTextNode(`${langName}`));
+        list.appendChild(li);
+    }
+
+    let arrayLang = ['JavaScript','Python','Java','C++','Ruby'];
+    arrayLang.forEach(function(lang){
+        addLangOpt(lang,ul);
+    }); 
+    
+    //--------------------edit the values in the list---------------------
+    let secondLang = document.querySelector('.language li:nth-child(2)');//suppose we want to change the second language
+
+    //----1--------innerHTML
+    secondLang.innerText = 'C#';//but this is not preffered as it requires traversal
+    //to deal with this we can use textContent
+    //--------2--------textContent
+    secondLang.replaceWith(document.createElement('li').textContent = 'Go');//this is preffered as it does not require traversal
+    // textContent is generally faster because it avoids the overhead of HTML parsing and DOM manipulation
+    //--------3--------outerHTML
+    secondLang.outerHTML = '<li>TypeScript</li>';//this is preffered as it does not require traversal
+    //outerHTML replaces the entire element including its tags
+    //slower <-- replacing the entire element | resource-intensive
+
+    //--------------------delete the values in the list---------------------
+    let thirdLang = document.querySelector('.language li:nth-child(3)');//suppose we want to delete the third language
+    //--------1--------remove()
+    thirdLang.remove();//this is preffered as it does not require traversal
+
+</script>
+</html>

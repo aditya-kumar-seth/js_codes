@@ -1,0 +1,8 @@
+class is known as className by document
+document.getElementById('idname').getAttribute('class'or 'id')/seAttribute
+set attribute function overwrites the value so its important to 
+mention the previous ones also
+
+innerHTML gives complete html inside a div
+innerContent givews the contents that are hidden and visible (complete)
+innerText gives only the visible texts
