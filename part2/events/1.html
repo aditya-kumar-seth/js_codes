@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../styles.css" />
+    <title>JavaScript Background Color Switcher</title>
+  </head>
+  <body>
+    <nav>
+      <a href="/" aria-current="page">Home</a>
+      <a target="_blank" href="https://www.youtube.com/@chaiaurcode"
+        >Youtube channel</a
+      >
+    </nav>
+    <div class="canvas">
+      <!-- <a
+        style="
+          background-color: #fff;
+          padding: 10px 30px;
+          border-radius: 8px;
+          color: #212121;
+          text-decoration: none;
+          border: 2px solid #212121;
+        "
+        href="../index.html"
+        >Back to Home Page</a
+      > -->
+      <h1>Color Scheme Switcher</h1>
+      <div class="boxes">
+      <span class="button" id="grey" onclick="alert('you clicked on grey')" ></span><!-- Example of inline event handler,alert takes '' not " " -->
+      <span class="button" id="white"></span>
+      <span class="button" id="blue"></span>
+      <span class="button" id="yellow"></span>
+      </div>
+      <h2>
+        Try clicking on one of the colors above
+        <span>to change the background color of this page!</span>
+      </h2>
+    </div>
+    <script> 
+    //onclick
+    //     document.getElementById('grey').onclick = () =>{//this will override the inline event handler
+    //         document.body.style.backgroundColor = 'grey';
+    //     }
+    // //event listener
+    //     document.getElementById('white').addEventListener('click',function(){
+    //         alert('white is pressed')
+    //     },false)//takes 3 parameters
+
+
+    // //------------------event propogation-------------
+    // //bubbling
+    //     document.getElementsByClassName('boxes')[0].addEventListener('click',function(){
+    //         alert(' pressed inside boxes');
+    //     },false)//takes 3 parameters
+    //     document.getElementById('blue').addEventListener('click',function(){
+    //         alert(' pressed blue box');
+    //     },false)//takes 3 parameters
+    //     //which will run first if i press blue box
+    //     //first blue box alert will run then boxes alert will run
+    //     //because of event bubbling (niche se upar)
+    // //capturing
+    //     document.getElementsByClassName('boxes')[0].addEventListener('click',function(){
+    //         alert(' pressed inside boxes capturing');
+    //     },true)//true is for capturing
+    //     document.getElementById('yellow').addEventListener('click',function(){
+    //         alert(' pressed yellow box capturing');
+    //     },true)
+    //     //which will run first if i press yellow box
+    //     //first boxes alert will run then yellow box alert will run
+    //     //because of event capturing (upar se niche)
+    // //stop propagation
+    //     document.getElementById('yellow').addEventListener('click',function(event){
+    //         alert(' pressed yellow box capturing with stop propagation');
+    //         event.stopPropagation();//it will stop the event propogation
+    //     },true);
+    //     document.getElementsByClassName('boxes')[0].addEventListener('click',function(){
+    //         alert(' pressed inside boxes');
+    //     },false);
+    //     //now if i press yellow box only yellow box alert will run
+    //     //boxes alert will not run because of stop propagation
+    // //prevent default
+    //     document.getElementById('grey').addEventListener('click',function(event){
+    //         event.preventDefault();//it will prevent the default action of the element
+    //         alert('you clicked on grey with prevent default');
+    //     },false);
+    //     //now if i press grey box alert will run but default action will not run
+    //     //default action is to change the background color of the page to grey
+
+
+
+
+     
+    </script>
+  </body>
+</html>
