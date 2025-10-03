@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async js</title>
+</head>
+<body style="background-color: #171717;color: bisque;">
+    <h1>aditya Kumar seth</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+    //js is by default synchronous and blocking
+    //means one line of code is executed at a time
+    //and the next line is executed only when the previous line is completed
+    //but we can make it asynchronous and non-blocking using callbacks, promises, async/await
+    //asynchronous code is executed in the background and does not block the main thread
+    //so that the next line of code can be executed without waiting for the previous line to complete
+    //this is done using event loop and callback queue
+
+    setTimeout(()=>{
+        console.log("hello Aditya");
+    },3000);
+    const hello = function(){
+        alert("hello user");
+    }
+    // setTimeout("hello()",5000);//we have to use string here because if we use function name without quotes it will be executed immediately
+    //we can also use reference to the function without quotes
+    // setTimeout(hello,7000);//this is the preferred way
+    const text = document.getElementsByTagName('h1');
+    console.log(text[0].innerHTML);
+    function changeText(){
+        text[0].innerHTML = "this is demo of asynchronous js";
+    
+    }
+    const stopChangeText = setTimeout(changeText,3000);
+    //how to stop the setTimeout
+
+    const stop = document.getElementById('stop');
+    stop.addEventListener('mouseover',()=>{
+        stop.style.backgroundColor = "red";
+        stop.style.color = "white";
+    })
+    stop.addEventListener('click',()=>{
+        clearTimeout(stopChangeText);//reference of the setTimeout function not just the function name
+        console.log("stopped");
+    })
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async js</title>
+</head>
+<body style="background-color: #171717;color: bisque;">
+    <h1>Subhash Kumar</h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+</body>
+<script>
+//======================================================================================
+    //try set timeout in set interval
+    const print = (str)=>{
+    console.log(str,Date.now());
+   }
+//    setInterval(print,2000,"respect");
+    const stop = document.getElementById('stop');
+    const start = document.querySelector('#start');
+    start.addEventListener('mouseover',()=>{
+    start.style.backgroundColor = "green";
+    start.style.color = "white";
+    ghdf = setInterval(print,2000,"respect1");//gfhd is global variable auto globally declared
+   });
+    stop.addEventListener('mouseover',()=>{
+    console.log("stopping");
+    stop.style.backgroundColor = "red";
+    stop.style.color = "white";
+    // const Intervals = setInterval(print,2000,"respect2");
+    
+    clearInterval(ghdf);
+
+    //this will stop the last interval only nothe previous ones
+    //because we have not stored the reference of previous intervals
+    //we can use a loop to clear the references of all intervals
+   });
+   //======================================================================================
+</script>
+</html>
