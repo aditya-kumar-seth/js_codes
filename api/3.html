@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body bgcolor="black" text="white">
+    hello work!
+</body>
+<script>
+        requestUrl = 'https://api.github.com/users/hiteshchoudhary';
+    //================================================================================
+    const xhr2 = new XMLHttpRequest();//create a request
+    xhr2.open('GET',requestUrl);//request opened
+    xhr2.onreadystatechange = function(){
+        console.log(xhr2.readyState);
+        if(xhr2.readyState === 4){
+            const data = this.responseText;
+            console.log(data);
+            //but this would be in form of string 
+            const data2 = JSON.parse(data);
+            console.log(data2.followers);
+        }
+    }
+    xhr2.send();//request sent
+</script>
+</html>

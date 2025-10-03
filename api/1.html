@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style=" background-color: black; color: beige;">
+    Every XMLHttpRequest goes through a series of states while sending/receiving data. These are tracked by the readyState property.
+
+🔹 XMLHttpRequest.readyState Values
+Value	State Name	Meaning
+0	UNSENT	Created, but open() not called yet
+1	OPENED	open() has been called, but request not sent yet
+2	HEADERS_RECEIVED	send() has been called, and headers + status are available
+3	LOADING	Response body is being downloaded (partial data available)
+4	DONE	Request completed (success or failure)
+</body>
+<script>
+    requestUrl = 'https://api.github.com/users/hiteshchoudhary';
+   
+//======================================================== 
+    const xhr = new XMLHttpRequest();//create an instance of XMLHttpRequest
+    //used to send http request to a web server(API) or load data from a web server(API)    
+    console.log(xhr.readyState);//0
+   
+    xhr.open('GET',requestUrl);
+    console.log(xhr.readyState); 
+    setTimeout(()=>{
+        console.log(xhr.readyState);
+    },2000);//will show 4 after 2 seconds means the request is completed
+    xhr.send();
+//===========================================================
+    
+
+
+</script>
+</html>

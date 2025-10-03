@@ -1,0 +1,40 @@
+In programming:
+
+Client (browser / frontend) asks for some data.
+
+Server (backend / API provider) sends the data back in a structured way (usually JSON).
+
+🔹 API Requests in JavaScript
+
+In JS, we usually make API requests to get, send, update, or delete data from a server.
+These requests follow HTTP methods:
+
+GET → Retrieve data
+
+POST → Send new data
+
+PUT / PATCH → Update existing data
+
+DELETE → Remove data
+
+🔹 What is XMLHttpRequest (XHR)?
+
+XMLHttpRequest is an older built-in JavaScript object that allows you to make HTTP requests (to APIs/servers)
+ without reloading the page.
+ Why "XML" in the name?
+
+Originally, data was often transferred in XML format.
+
+But now, most APIs use JSON instead.
+
+Still, the object is called XMLHttpRequest for historical reasons.
+
+Every XMLHttpRequest goes through a series of states while sending/receiving data. These are tracked by the readyState property.
+
+🔹 XMLHttpRequest.readyState Values
+Value	State Name	Meaning
+0	UNSENT	Created, but open() not called yet
+1	OPENED	open() has been called, but request not sent yet
+2	HEADERS_RECEIVED	send() has been called, and headers + status are available
+3	LOADING	Response body is being downloaded (partial data available)
+4	DONE	Request completed (success or failure)

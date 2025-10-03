@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body bgcolor="grey" text="gold">
+    <h1>
+        this is my github profile😎
+    </h1>
+    <div>
+    <img src="https://wallpapers.com/images/hd/baki-hanma-pictures-a6hfhof6iblrfq6x.jpg" width="300px" alt="my_image">
+    </div>
+    <button>click here</button>
+</body>
+<script>
+//===========================================================================
+    const src = 'https://api.github.com/users/aditya-kumar-seth';
+    const request = new XMLHttpRequest();
+    let myData =null;
+    request.onreadystatechange = function(){
+        console.log(this.readyState);
+        if(this.readyState === 4){
+            const data = this.responseText;
+            myData = JSON.parse(data);
+        }
+    }
+    request.open('GET',src);
+    request.send();
+    const click = document.querySelector('button');
+    click.addEventListener('click',()=>{
+        console.log("hi guys!");
+        console.log("followers -> ", myData.followers);
+        console.log("following -> " ,myData.following);
+    })
+</script>
+</html>
