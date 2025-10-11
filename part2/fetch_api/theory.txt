@@ -1,0 +1,21 @@
+
+
+--fetch is a modern built-in JavaScript function that allows you to make HTTP requests (to APIs/servers) without reloading the page.
+its similar to XMLHttpRequest but with a simpler and cleaner API.
+
+
+ Fetch utilizes Promises, which offer a cleaner and more modern way to handle asynchronous operations compared to XHR's callback-based approach. This leads to more readable and maintainable code, especially when dealing with sequential requests or error handling.
+---Fetch--- is integrated with modern web features like Service Workers and--- Cross-Origin Resource Sharing (CORS) ---and is part of the JavaScript ecosystem.
+cors 
+
+
+--fetch API is built on promises, so it works well with async/await syntax.
+
+    fetch('https://api.example.com/data')//this returns a promise and means the request is sent
+        .then(response => response.json()) // response.json() also returns a promise
+        .then(data => {
+            console.log('Data received:', data);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });

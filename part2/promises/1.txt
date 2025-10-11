@@ -113,3 +113,6 @@ handling promises using async/await syntax:
         - however, async/await can only be used inside async functions, while then, catch, and finally can be used anywhere.
 
 ------------- so in general use async/await for most cases unless u need to chain multiple asynchronous operations together.
+
+
+note that response.json() is also a promise, so you can use await on it as well. because to convert the response body to JSON format, it may take some time, especially for large responses.
