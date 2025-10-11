@@ -20,7 +20,7 @@ DELETE → Remove data
 🔹 What is XMLHttpRequest (XHR)?
 
 XMLHttpRequest is an older built-in JavaScript object that allows you to make HTTP requests (to APIs/servers)
- without reloading the page.
+ without reloading the page.//no reloading of the page means no blocking of the main thread means asynchronous operation
  Why "XML" in the name?
 
 Originally, data was often transferred in XML format.

@@ -79,3 +79,37 @@ for example:
                                             .finally(() => {
                                                 console.log('Promise chain has been settled.');
                                             });     
+
+
+
+handling promises using async/await syntax:
+    async/await is a syntactic sugar over promises, which makes it easier to work with asynchronous code.
+    an async function is a function that returns a promise.
+    the await keyword can be used inside an async function to wait for a promise to be settled.
+    for example:
+
+                                        async function fetchData() {
+                                            try {
+                                                const result = await myPromise; // wait for the promise to be settled
+                                                console.log('Result:', result);
+                                            } catch (error) {
+                                                console.error('Error:', error);
+                                            } finally {
+                                                console.log('Fetch operation completed.');
+                                            }
+                                        }
+
+    in this example, the fetchData function is declared as async, which means it returns a promise.
+    inside the function, the await keyword is used to wait for myPromise to be settled.
+    if the promise is fulfilled, the result variable will contain the value passed to the resolve function.
+    if the promise is rejected, the error variable will contain the value passed to the reject function and result will not be assigned and result will be undefined.
+    the finally block will always be executed after the try and catch blocks, regardless of whether the promise was fulfilled or rejected.
+
+
+    when to use then catch finally vs async await:
+        - use then, catch, and finally when you want to chain multiple asynchronous operations together.
+        - use async/await when you want to write asynchronous code that looks like synchronous code.
+        - async/await is generally easier to read and understand, especially for complex asynchronous operations.
+        - however, async/await can only be used inside async functions, while then, catch, and finally can be used anywhere.
+
+------------- so in general use async/await for most cases unless u need to chain multiple asynchronous operations together.
