@@ -1,0 +1,81 @@
+promise ---
+
+    object which represents a value which may be available now, or in the future, or never.
+    this is a placeholder for a value that will be known later.
+    a promise is in one of these states:
+        - pending: initial state, neither fulfilled nor rejected.
+        - fulfilled: meaning that the operation completed successfully.
+        - rejected: meaning that the operation failed.
+        - settled: the promise is either fulfilled or rejected.
+    
+    a promise is settled using the resolve and reject functions passed to the executor function.
+    once a promise is settled, it can never change again.
+    a promise can be created using the --- Promise constructor --- which takes --------- an executor function as an argument-----------.
+    the executor function is called -- immediately -- by the Promise implementation, passing resolve and reject functions (the
+    executor is called before the Promise constructor even returns the created object).
+    resolve and reject functions are used to settle the promise.
+    the resolve function is called when the asynchronous operation completes successfully, and the reject function is called
+    when the operation fails.
+    for an example:
+
+
+                                        const myPromise = new Promise((resolve, reject) => {//new is used to create a new instance of a promise
+                                            // do something asynchronous meaning not blocking the main thread like fetching data from an API or reading a file
+                                            setTimeout(() => {
+                                                const success = true; // or false based on some condition
+                                                if (success) {
+                                                    resolve('Operation was successful!');//resolve function is called when the operation is successful
+                                                } else {
+                                                    reject('Operation failed.');
+                                                }
+                                            }, 1000);
+                                        });
+    in this example, a new promise is created that simulates an asynchronous operation using setTimeout.
+    after 1 second, it randomly either resolves or rejects the promise based on the value of the success variable.
+    once a promise is settled (either resolved or rejected), it can be handled using the then, catch, and finally methods.
+
+   --- the then method is used to specify what to do when the promise is fulfilled.
+   --- the catch method is used to specify what to do when the promise is rejected.
+   --- the finally method is used to specify what to do when the promise is settled (either fulfilled or rejected).
+    for example:
+   
+                                        myPromise
+                                            .then((message) => {//message is the value passed to the resolve function
+                                                console.log('Success:', message);
+                                            })
+                                            .catch((error) => {//error is the value passed to the reject function
+                                                console.error('Error:', error);
+                                            })
+                                            .finally(() => {
+                                                console.log('Promise has been settled.');
+                                            });                  
+
+            then gets the value passed to the resolve function as an argument
+            catch gets the value passed to the reject function as an argument
+            finally does not get any arguments, it is just called when the promise is settled.   
+
+then, catch, and finally methods also return a new promise, which allows for chaining multiple asynchronous operations together.
+for example:
+                                        myPromise
+                                            .then((message) => {
+                                                console.log('First success:', message);
+                                                return 'Data from first then';      // returning a value to the next then
+                                            })
+                                            .then((data) => {                       //here data is 'Data from first then'
+                                                console.log('Second success:', data);
+                                                // you can also return a new promise here
+                                                return new Promise((resolve) => {
+                                                    setTimeout(() => {
+                                                        resolve('Data from second then after delay');
+                                                    }, 1000);
+                                                });
+                                            })
+                                            .then((data) => {
+                                                console.log('Third success:', data);
+                                            })
+                                            .catch((error) => {
+                                                console.error('Error:', error);
+                                            })
+                                            .finally(() => {
+                                                console.log('Promise chain has been settled.');
+                                            });     
